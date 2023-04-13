@@ -1,0 +1,17 @@
+wget https://github.com/prometheus/prometheus/releases/download/v2.43.0/prometheus-2.43.0.linux-amd64.tar.gz
+tar cvzf prometheus-2.43.0.linux-amd64.tar.gz
+.....
+
+install grafana
+
+apt-get install -y software-properties-common wget
+ wget -q -O /usr/share/keyrings/grafana.key https://apt.grafana.com/gpg.key
+ echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+ echo "deb [signed-by=/usr/share/keyrings/grafana.key] https://apt.grafana.com beta main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+ 
+ apt-get update
+ apt-get install grafana
+ apt-get install grafana-enterprise
+ systemctl daemon-reload
+ systemctl enabl grafana-server
+ systemctl start grafana-server
